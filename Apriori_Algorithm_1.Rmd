@@ -1,0 +1,74 @@
+---
+title: "Apriori_Stuff"
+author: "Donald"
+date: "2024-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+# Load the necessary libraries
+```{r}
+# Load the necessary libraries
+library(arules)
+library(arulesViz)
+
+# Define the transactions
+transactions <- as(
+  list(
+    c("Bread", "Chips", "Eggs", "Drink"),
+    c("Bread", "Chips", "Drink"),
+    c("Bread", "Milk", "Yoghurt"),
+    c("Bread", "Drink", "Milk"),
+    c("Chips", "Drink", "Milk")
+  ),
+  "transactions"
+)
+
+```
+
+
+# Run the Apriori algorithm
+```{r}
+# Run the Apriori algorithm
+rules <- apriori(transactions, parameter = list(supp = 0.5, conf = 0.8))
+
+
+```
+# Inspect the rules
+
+```{r}
+# Inspect the rules
+inspect(rules)
+
+```
+# Visualize the rules
+
+```{r}
+# Visualize the rules
+plot(rules, method = "graph")
+
+```
+
+```{r}
+write(rules)
+
+```
+
+# Plot the item frequencies
+```{r}
+# Plot the item frequencies
+itemFrequencyPlot(transactions, topN = 5, type = "absolute", main = "Grocery Frequency")
+```
+
+
+

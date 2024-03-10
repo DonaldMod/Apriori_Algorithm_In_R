@@ -1,0 +1,50 @@
+---
+title: "Apriori_Algorithm_3"
+author: "Donald"
+date: "2024-03-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(arules)
+transactions3 <- as(
+  list(
+    c("HD", "B", "Ke"),
+    c("HD", "B"),
+    c("HD", "Co", "Ch"),
+    c("Co", "Ch"),
+    c("Ch", "Ke"),
+    c("HD", "Co", "Ch")
+  ),
+  "transactions"
+)
+
+```
+
+```{r}
+rules2 <- apriori(transactions3, parameter = list(supp = 0.3334, conf = 0.6))
+
+```
+
+```{r}
+inspect(rules2)
+
+```
+
+```{r}
+library(arulesViz)
+
+itemFrequencyPlot(transactions3, topN = 5, type = "absolute", main = "Chemical Frequency")
+
+```
+
