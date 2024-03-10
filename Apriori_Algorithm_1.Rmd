@@ -2,7 +2,7 @@
 title: "Apriori_Stuff"
 author: "Donald"
 date: "2024-03-10"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}

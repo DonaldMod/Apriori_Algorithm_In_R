@@ -2,7 +2,7 @@
 title: "Apriori_Algorithm_3"
 author: "Donald"
 date: "2024-03-10"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
@@ -47,4 +47,3 @@ library(arulesViz)
 itemFrequencyPlot(transactions3, topN = 5, type = "absolute", main = "Chemical Frequency")
 
 ```
-
